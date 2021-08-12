@@ -79,6 +79,7 @@ class Grid:
             columnIndex: self.__columnHeight(columnIndex)
             for columnIndex in columnIndexes
         }
+        columnIndexes.sort(reverse=True, key=columnHeights.get)
         # After working out the height of each column that the piece is landing in, the piece is tried at each possible height
         # There is only 1 possible position so when the check returns true, those positions are assumed as the correct position
         for columnIndex in columnIndexes:
