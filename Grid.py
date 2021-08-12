@@ -22,6 +22,7 @@ class Grid:
         secondTransform = list(reversed(firstTransform))
         returnString = ""
         for row in secondTransform:
+            # printed grid shows + for filled piece and - for empty square
             row = "".join(("+" if element else "-").center(3) for element in row)
             returnString += row + "\n"
         return returnString
@@ -100,13 +101,16 @@ class Grid:
                 for position in shape
             ]
 
+            # If this position for the piece is valid, then stop trying new heights
             if self.isValidMove(absoluteShape):
                 break
 
+        # Adds piece to determined position
         for position in absoluteShape:
             if self.__grid[position[0]][position[1]]:
                 raise ValueError("position already filled")
             self.__grid[position[0]][position[1]] = True
 
+        # Checks if any rows have been filled as these need to be removed
         for row in set([pos[1] for pos in absoluteShape]):
             self.checkFullRow(row)

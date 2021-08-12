@@ -1,26 +1,31 @@
 from Grid import Grid
+import FileHandler
 
 
 class Tetris:
     def loadInput(inputFilename):
-        pass
+        return FileHandler.parseInputFile(inputFilename)
 
     def runGames(sequences):
-        pass
+        heights = [Tetris.runGame(sequence) for sequence in sequences]
+        return heights
 
     def runGame(sequence):
-        pass
+        grid = Grid()
+        for instruction in sequence:
+            grid.addPiece(Grid.shapes[instruction[0]], instruction[1])
+        print(grid)
+        print("")
+        return grid.maxHeight()
 
     def saveHeights(heights, filename):
-        pass
+        FileHandler.saveOutput(heights, filename)
 
 
 def main():
-    grid = Grid()
-    grid.addPiece(Grid.shapes["I"], 0)
-    grid.addPiece(Grid.shapes["I"], 4)
-    grid.addPiece(Grid.shapes["Q"], 8)
-    print(grid, grid.maxHeight())
+    sequences = Tetris.loadInput("input.txt")
+    heights = Tetris.runGames(sequences)
+    Tetris.saveHeights(heights, "output.txt")
 
 
 if __name__ == "__main__":
