@@ -58,6 +58,10 @@ class Grid:
 
     # Checks if a piece will fit in the grid without colliding with other pieces
     def isValidMove(self, shape):
+        # If the piece is hitting the bottom of the grid, the false check is not enough as there are no falses and it will try
+        # place the piece at the top of the grid
+        if any(position[1] < 0 for position in shape):
+            return False
         for position in shape:
             if self.__grid[position[0]][position[1]]:
                 return False

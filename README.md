@@ -1,8 +1,10 @@
 # Case study 1
+## Execution
 
+Run ``` python Tetris.py ```
 ## Design
 
-My first thought after seeing the task was to split it into more managable sections and tackle them 1 by 1. The file handling and the tetris engine can very clearly be split up so I decided to focus on the engine first. I then decided that python would be a good fit for this case study as it is very fast to develop with and it is easier to test ideas.
+My first thought after seeing the task was to split it into more manageable sections and tackle them 1 by 1. The file handling and the Tetris engine can very clearly be split up so I decided to focus on the engine first. I then decided that python would be a good fit for this case study as it is very fast to develop with and it is easier to test ideas.
 
 ### Tetris engine
 
@@ -24,4 +26,4 @@ This class only needs to handle the execution of games and does not have any sor
 
 ### FileHandler class
 
-This was a very very simple task in python as it really simplifies file handling with methods such as readLines and str.split which mean going from a file to a list of tuples that can be recognised as instructions is very simple
+This was a very, very simple task in python as it really simplifies file handling with methods such as readLines and str.split which mean going from a file to a list of tuples that can be recognised as instructions is very simple
